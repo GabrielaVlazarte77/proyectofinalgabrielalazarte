@@ -1,9 +1,8 @@
+import cart from "../../src/assets/cart.svg"
 
 const CartWidget = () => {
     return (
-      <div className="cart-widget">
-        <span className="badge badge-pill badge-danger">6</span>
-      </div>
+      <img src={cart} alt="carrito de compras" />
     );
   };
 
