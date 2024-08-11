@@ -1,9 +1,18 @@
-import cart from "../../src/assets/cart.svg"
+// src/components/CartWidget.jsx
+
+import { useCart } from '../contexts/CartContext';
+import cartIcon from '../../src/assets/cart.svg';
 
 const CartWidget = () => {
-    return (
-      <img src={cart} alt="carrito de compras" />
-    );
-  };
+  const { cartItems } = useCart();
+  const itemCount = cartItems.reduce((total, item) => total + item.quantity, 0);
 
-export default CartWidget
+  return (
+    <div>
+      <img src={cartIcon} alt="carrito de compras" />
+      {itemCount > 0 && <span>{itemCount}</span>}
+    </div>
+  );
+};
+
+export default CartWidget;
